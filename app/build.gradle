@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.ebfstudio.blue"
@@ -34,10 +34,19 @@ android {
 
 dependencies {
 
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Kotlin Coroutine
+    // - We always need to import kotlinx-coroutines-android with android project
+    // - https://github.com/Kotlin/kotlinx.coroutines#android
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+
+    // Android
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
@@ -47,9 +56,19 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation "androidx.startup:startup-runtime:1.0.0-alpha03"
 
+    // Timber
+    // - Very useful for logging
+    // - https://github.com/JakeWharton/timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // ThreeTen Android Backport
+    // - Manage dates gracefully in android
+    // - https://github.com/JakeWharton/ThreeTenABP
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.4'
 
+    // Koin
+    // - Easy dependencies injection in android
+    // - https://github.com/InsertKoinIO/koin
     def koin_version= "2.1.6"
     implementation "org.koin:koin-androidx-scope:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
