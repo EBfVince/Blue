@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -23,13 +24,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        dataBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -52,6 +60,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation "androidx.startup:startup-runtime:1.0.0-alpha03"
@@ -72,6 +81,20 @@ dependencies {
     def koin_version= "2.1.6"
     implementation "org.koin:koin-androidx-scope:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+    // InkPageIndicator
+    // - Cool swipe effect
+    // - https://github.com/DavidPacioianu/InkPageIndicator
+    implementation 'com.pacioianu.david:ink-page-indicator:1.3.0'
+
+    // ViewBindingPropertyDelegate
+    // - Make work with Android View Binding simpler
+    // Articles
+    // - https://proandroiddev.com/make-android-view-binding-great-with-kotlin-b71dd9c87719
+    // - https://proandroiddev.com/avoiding-memory-leaks-when-using-data-binding-and-view-binding-3b91d571c150
+    // Github
+    // - https://github.com/kirich1409/ViewBindingPropertyDelegate
+    implementation 'com.kirich1409.viewbindingpropertydelegate:viewbindingpropertydelegate:1.2.0'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

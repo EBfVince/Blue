@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
-    <style name="Theme.Blue" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Blue" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,8 +15,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Blue.BaseLauncher">
-
+    <style name="Base.Blue.Launcher">
         <!-- Removing action bar -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -25,15 +25,14 @@
 
         <!-- Setting up white status bar -->
         <item name="android:statusBarColor">?attr/colorSurface</item>
-
-    </style>
-
-    <style name="Theme.Blue.Launcher" parent="Theme.Blue.BaseLauncher">
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <!-- Remove activity animation -->
+        <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <!-- test -->
-    <style name="AppTheme" parent="Theme.Blue" />
-    <style name="AppTheme.Launcher" parent="Theme.Blue.Launcher" />
+    <style name="AppTheme" parent="Base.Blue" />
+
+    <style name="AppTheme.Launcher" parent="Base.Blue.Launcher" />
 
 </resources>
