@@ -3,6 +3,7 @@ package com.ebfstudio.blue.ui.splashscreen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.ebfstudio.blue.repo.PreferenceStorage
+import com.ebfstudio.blue.shared.Event
 import kotlinx.coroutines.Dispatchers
 
 /**
@@ -11,8 +12,16 @@ import kotlinx.coroutines.Dispatchers
 class LauncherViewModel(prefsStorage: PreferenceStorage) : ViewModel() {
 
     val launchDestination = liveData(Dispatchers.IO) {
-        val result = prefsStorage.onboardingCompleted
-        emit(result)
+        val destination = when(prefsStorage.onboardingCompleted) {
+            true -> LaunchDestination.MAIN_ACTIVITY
+            false -> LaunchDestination.ONBOARDING
+        }
+        emit(Event(destination))
     }
 
+}
+
+enum class LaunchDestination {
+    ONBOARDING,
+    MAIN_ACTIVITY
 }

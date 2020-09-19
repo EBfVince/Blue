@@ -6,9 +6,9 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_fbls"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_fbls_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -24,6 +24,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" />
+
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
